@@ -4,10 +4,12 @@ import TicketForm from "./components/TicketForm";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import TicketDetails from "./components/TicketDetails";
+import Navbar from "./components/NavBar";
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<TicketForm />} />
         <Route path="/login" element={<Login />} />
