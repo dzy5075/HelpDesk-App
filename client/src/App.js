@@ -1,0 +1,21 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import TicketForm from "./components/TicketForm";
+import Login from "./pages/Login";
+import Admin from "./pages/Admin";
+import TicketDetails from "./components/TicketDetails";
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<TicketForm />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/tickets/:id" element={<TicketDetails />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
