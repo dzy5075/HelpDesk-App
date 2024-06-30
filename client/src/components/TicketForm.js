@@ -36,34 +36,52 @@ const TicketForm = () => {
   };
 
   return (
-    <div>
+    <div className="container mt-5">
+      <h1 className="mb-4">Got a problem? Submit a ticket. We will look into it.</h1>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          name="description"
-          placeholder="Description"
-          value={formData.description}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Submit</button>
+        <div className="row mb-3">
+          <div className="col-12 col-md-6">
+            <label htmlFor="name" className="form-label">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              className="form-control"
+              placeholder="Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="col-12 col-md-6">
+            <label htmlFor="email" className="form-label">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              className="form-control"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="description" className="form-label">Description</label>
+          <textarea
+            name="description"
+            id="description"
+            className="form-control"
+            placeholder="Description"
+            value={formData.description}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">Submit</button>
       </form>
-      <button onClick={handleAdminLogin}>Admin Login</button>
+      {/* <button onClick={handleAdminLogin} className="btn btn-link mt-3">Admin Login</button> */}
     </div>
   );
 };
