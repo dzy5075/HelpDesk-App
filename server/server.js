@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 5000;
 
 // favicon
 app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
+
 app.use(
   cors({
     origin: [process.env.FRONTEND_URL, "http://localhost:3000"],
@@ -37,6 +39,15 @@ app.use("/api/admin", authenticate, adminRoutes);
 // Root URL handling
 app.get("/", (req, res) => {
   res.send("Welcome to the Help Desk API");
+});
+
+// Debug route to verify environment variables
+app.get("/debug/env", (req, res) => {
+  res.json({
+    POSTGRES_URL: process.env.POSTGRES_URL,
+    NODE_ENV: process.env.NODE_ENV,
+    JWT_SECRET: process.env.JWT_SECRET,
+  });
 });
 
 sequelize
