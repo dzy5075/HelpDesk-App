@@ -1,5 +1,5 @@
 const Ticket = require("../models/Ticket");
-const logEmail = require("../Utils/emailLogger");
+const logEmail = require("../utils/emailLogger");
 
 // Response to successful ticket creation
 exports.createTicket = async (req, res) => {
