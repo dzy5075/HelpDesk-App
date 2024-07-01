@@ -9,6 +9,8 @@ const adminRoutes = require("./routes/admin");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+//favicon
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -46,14 +48,13 @@ sequelize
     console.error("Unable to connect to the database:", error);
   });
 
-app.use((req, res) => {
-  res.status(404).send('404: Not Found');
+app.use((err, req, res, next) => {
+  console.error('Error:', err);
+  res.status(500).send('Internal Server Error');
 });
 
-// Global error handler
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
+app.use((req, res) => {
+  res.status(404).send('404: Not Found');
 });
 
 module.exports = app;

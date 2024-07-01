@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize');
-const pg = require('pg');
+const pg = require('pg'); 
 
 const connectionString = process.env.POSTGRES_URL;
 
@@ -17,7 +17,7 @@ const sequelize = new Sequelize(connectionString, {
     }
   },
   define: {
-    schema: 'public'
+    schema: 'public' 
   }
 });
 
