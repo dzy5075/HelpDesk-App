@@ -8,6 +8,7 @@ const sequelize = require("./config/database");
 const ticketRoutes = require("./routes/tickets");
 const authRoutes = require("./routes/auth");
 const adminRoutes = require("./routes/admin");
+const { authenticate, isAdmin } = require("./middleware/auth");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
