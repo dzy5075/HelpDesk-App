@@ -1,5 +1,3 @@
-// Login Page + Form
-// Login: username:admin, password:password
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -8,11 +6,12 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/auth/login", {
+      const response = await axios.post(`${apiUrl}/api/auth/login`, {
         username,
         password,
       });
@@ -27,7 +26,7 @@ const Login = () => {
   return (
     <div className="container mt-5">
       <h1 className="mb-4">Admin Login Page</h1>
-      <form className= "login-form" onSubmit={handleSubmit}>
+      <form className="login-form" onSubmit={handleSubmit}>
         <div className="mb-3 row justify-content-center">
           <label htmlFor="username" className="col-sm-2 col-form-label"><strong>Username:</strong></label>
           <div className="col-sm-6 col-md-4">
