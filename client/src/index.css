@@ -2,6 +2,15 @@
 .navbar {
     background-color: #f2f4e8
   }
+/* Ticket Form */
+.ticket-form {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 40px;
+    border: 2px double green; /* Adjust the color as needed */
+    border-radius: 5px;
+    background-color: #f2f4e8;
+}
 /* Login Form  */
 .login-form {
     max-width: 600px;
@@ -11,5 +20,34 @@
     border-radius: 5px;
     background-color: #f2f4e8;
   }
+  /* Ticket details */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
   
+  .ticket-details {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .ticket-details h1 {
+    margin-bottom: 20px;
+  }
+  
+  .ticket-details p {
+    margin-bottom: 10px;
+  }
+  
+  .ticket-details .form-label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .ticket-details .form-select,
+  .ticket-details .form-control {
+    margin-bottom: 10px;
+  }
   

@@ -24,16 +24,28 @@ const Admin = () => {
 
   return (
     <div className="container mt-5">
-      <h1 className="mb-4">Admin Dashboard</h1>
+      <h1 className="mb-4">Admin Dashboard and Tickets</h1>
       <table className="table table-striped table-hover">
         <thead>
           <tr>
-            <th><u>Name</u></th>
-            <th><u>Email</u></th>
-            <th><u>Description</u></th>
-            <th><u>Response</u></th>
-            <th><u>Status</u></th>
-            <th><u>Actions</u></th>
+            <th>
+              <u>Name</u>
+            </th>
+            <th>
+              <u>Email</u>
+            </th>
+            <th>
+              <u>Description</u>
+            </th>
+            <th>
+              <u>Response</u>
+            </th>
+            <th>
+              <u>Status</u>
+            </th>
+            <th>
+              <u>Actions</u>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -42,12 +54,12 @@ const Admin = () => {
               <td>{ticket.name}</td>
               <td>{ticket.email}</td>
               <td>{ticket.description}</td>
-              <td>{ticket.response || "No response yet"}</td>
+              <td>{ticket.response || "No response yet!"}</td>
               <td>{ticket.status}</td>
               <td>
                 <Link
                   to={`/admin/tickets/${ticket.id}`}
-                  className="btn btn-primary btn-sm"
+                  className="btn btn-success btn-sm"
                 >
                   View Details
                 </Link>

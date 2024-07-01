@@ -1,4 +1,4 @@
-// Ticket Details
+// Single Ticket Details
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
@@ -27,7 +27,7 @@ const TicketDetails = () => {
         console.error("There was an error fetching the ticket details!", error);
       });
   }, [id, token]);
-
+// Changing Ticket Status
   const handleStatusChange = (e) => {
     setStatus(e.target.value);
   };
@@ -35,7 +35,7 @@ const TicketDetails = () => {
   const handleResponseChange = (e) => {
     setResponse(e.target.value);
   };
-
+// Update Ticket Response
   const handleUpdate = () => {
     axios
       .put(
@@ -59,8 +59,9 @@ const TicketDetails = () => {
   if (!ticket) return <div>Loading...</div>;
 
   return (
-    <div>
-      <h1>Ticket Details</h1>
+    <div className="container mt-5 ticket-details">
+      <button className="btn btn-secondary mb-3" onClick={() => navigate("/admin")}>Back to Tickets</button>
+      <h1><u>Ticket Details</u></h1>
       <p>
         <strong>Name:</strong> {ticket.name}
       </p>
@@ -76,17 +77,25 @@ const TicketDetails = () => {
       <p>
         <strong>Response:</strong> {ticket.response}
       </p>
-      <select value={status} onChange={handleStatusChange}>
-        <option value="new">New</option>
-        <option value="in progress">In Progress</option>
-        <option value="resolved">Resolved</option>
-      </select>
-      <textarea
-        placeholder="Response"
-        value={response}
-        onChange={handleResponseChange}
-      ></textarea>
-      <button onClick={handleUpdate}>Update Ticket</button>
+      <div className="mb-3">
+        <label htmlFor="status" className="form-label"><strong>Status:</strong></label>
+        <select id="status" value={status} onChange={handleStatusChange} className="form-select">
+          <option value="new">New</option>
+          <option value="in progress">In Progress</option>
+          <option value="resolved">Resolved</option>
+        </select>
+      </div>
+      <div className="mb-3">
+        <label htmlFor="response" className="form-label"><strong>Response:</strong></label>
+        <textarea
+          id="response"
+          className="form-control"
+          placeholder="Response"
+          value={response}
+          onChange={handleResponseChange}
+        ></textarea>
+      </div>
+      <button onClick={handleUpdate} className="btn btn-primary">Update Ticket</button>
     </div>
   );
 };
