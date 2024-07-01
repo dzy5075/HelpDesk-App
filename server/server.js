@@ -32,3 +32,12 @@ sequelize
   .catch((error) => {
     console.error("Unable to connect to the database:", error);
   });
+
+
+  app.get('/debug/env', (req, res) => {
+    res.json({
+      DATABASE_URL: process.env.DATABASE_URL,
+      NODE_ENV: process.env.NODE_ENV,
+      JWT_SECRET: process.env.JWT_SECRET
+    });
+  });

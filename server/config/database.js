@@ -13,11 +13,16 @@ const ssl = process.env.NODE_ENV === 'production' ? {
   }
 } : {};
 
-const sequelize = new Sequelize(database, username, password, {
-  host,
-  port,
-  dialect,
-  dialectOptions: ssl,
+const connectionString = process.env.DATABASE_URL || 'postgres://default:pZ1uQUIW5AEK@ep-shiny-snowflake-a4flgchp-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require';
+
+const sequelize = new Sequelize(connectionString, {
+  dialect: 'postgres',
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  }
 });
 
 module.exports = sequelize;
