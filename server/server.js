@@ -8,34 +8,44 @@ const sequelize = require("./config/database");
 const ticketRoutes = require("./routes/tickets");
 const authRoutes = require("./routes/auth");
 const adminRoutes = require("./routes/admin");
-const { authenticate } = require("./middleware/auth");
+const { authenticate, isAdmin } = require("./middleware/auth");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Favicon
+// Favicon setup
 app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
-// CORS configuration
+// CORS setup with additional logging
+const allowedOrigins = [process.env.FRONTEND_URL, "http://localhost:3000"];
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL, "http://localhost:3000"],
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        console.log(`Blocked by CORS: ${origin}`);
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     optionsSuccessStatus: 200,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   })
 );
 
 app.use(bodyParser.json());
 
+// Logging incoming requests
 app.use((req, res, next) => {
   console.log(`Incoming request: ${req.method} ${req.url}`);
   next();
 });
 
+// Routes
 app.use("/api/tickets", ticketRoutes); // Publicly accessible routes
 app.use("/api/auth", authRoutes); // Authentication routes
-app.use("/api/admin", authenticate, adminRoutes);
+app.use("/api/admin", authenticate, adminRoutes); // Admin routes with authentication
 
 // Root URL handling
 app.get("/", (req, res) => {
@@ -51,6 +61,7 @@ app.get("/debug/env", (req, res) => {
   });
 });
 
+// Database connection and server start
 sequelize
   .authenticate()
   .then(() => {
@@ -66,11 +77,13 @@ sequelize
     console.error("Unable to connect to the database:", error);
   });
 
+// Error handling
 app.use((err, req, res, next) => {
   console.error("Error:", err);
   res.status(500).send("Internal Server Error");
 });
 
+// 404 handling
 app.use((req, res) => {
   res.status(404).send("404: Not Found");
 });
