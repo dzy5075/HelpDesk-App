@@ -1,11 +1,11 @@
-// Ticket backend routes
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const ticketController = require("../controllers/ticketController");
+const ticketController = require('../controllers/ticketController');
 
-router.post("/", ticketController.createTicket);
-router.get("/", ticketController.getAllTickets);
-router.get("/:id", ticketController.getTicketById);
-router.put("/:id", ticketController.updateTicket);
+// These routes are publicly accessible
+router.post('/', ticketController.createTicket);
+router.get('/', ticketController.getAllTickets);
+router.get('/:id', ticketController.getTicketById);
+router.put('/:id', ticketController.updateTicket);
 
 module.exports = router;

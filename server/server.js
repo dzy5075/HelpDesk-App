@@ -29,9 +29,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api/tickets", ticketRoutes);
-app.use("/api/auth", authRoutes);
-app.use("/api/admin", adminRoutes);
+app.use("/api/tickets", ticketRoutes); // Publicly accessible routes
+app.use("/api/auth", authRoutes); // Authentication routes
+app.use("/api/admin", authenticate, adminRoutes);
 
 // Root URL handling
 app.get("/", (req, res) => {
