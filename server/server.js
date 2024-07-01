@@ -1,12 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors"); // to prevent CORS errors
+const sequelize = require("./config/database");
 const ticketRoutes = require("./routes/tickets");
 const authRoutes = require("./routes/auth");
 const adminRoutes = require("./routes/admin");
-const sequelize = require("./config/database");
-const User = require("./models/User");
-const Ticket = require("./models/Ticket");
+// const User = require("./models/User");
+// const Ticket = require("./models/Ticket");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
