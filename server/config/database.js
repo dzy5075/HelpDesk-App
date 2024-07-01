@@ -57,8 +57,10 @@ const sequelize = new Sequelize(connectionString, {
       require: true,
       rejectUnauthorized: false
     }
+  },
+  define: {
+    schema: 'public' // Specify the schema here
   }
 });
 
 module.exports = sequelize;
-
