@@ -1,3 +1,4 @@
+// Admin Dashboard
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -22,16 +23,39 @@ const Admin = () => {
   }, [token]);
 
   return (
-    <div>
-      <h1>Admin Dashboard</h1>
-      <ul>
-        {tickets.map((ticket) => (
-          <li key={ticket.id}>
-            {ticket.name} - {ticket.description} - {ticket.status}
-            <Link to={`/admin/tickets/${ticket.id}`}>View Details</Link>
-          </li>
-        ))}
-      </ul>
+    <div className="container mt-5">
+      <h1 className="mb-4">Admin Dashboard</h1>
+      <table className="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th><u>Name</u></th>
+            <th><u>Email</u></th>
+            <th><u>Description</u></th>
+            <th><u>Response</u></th>
+            <th><u>Status</u></th>
+            <th><u>Actions</u></th>
+          </tr>
+        </thead>
+        <tbody>
+          {tickets.map((ticket) => (
+            <tr key={ticket.id}>
+              <td>{ticket.name}</td>
+              <td>{ticket.email}</td>
+              <td>{ticket.description}</td>
+              <td>{ticket.response || "No response yet"}</td>
+              <td>{ticket.status}</td>
+              <td>
+                <Link
+                  to={`/admin/tickets/${ticket.id}`}
+                  className="btn btn-primary btn-sm"
+                >
+                  View Details
+                </Link>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
