@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const TicketForm = () => {
   const [formData, setFormData] = useState({
@@ -8,7 +8,7 @@ const TicketForm = () => {
     email: "",
     description: "",
   });
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,9 +31,9 @@ const TicketForm = () => {
       });
   };
 
-  const handleAdminLogin = () => {
-    navigate("/login");
-  };
+  // const handleAdminLogin = () => {
+  //   navigate("/login");
+  // };
 
   return (
     <div className="container mt-5">
@@ -41,7 +41,7 @@ const TicketForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="row mb-3">
           <div className="col-12 col-md-6">
-            <label htmlFor="name" className="form-label">Name</label>
+            <label htmlFor="name" className="form-label">Name:</label>
             <input
               type="text"
               name="name"
@@ -54,7 +54,7 @@ const TicketForm = () => {
             />
           </div>
           <div className="col-12 col-md-6">
-            <label htmlFor="email" className="form-label">Email</label>
+            <label htmlFor="email" className="form-label">Email:</label>
             <input
               type="email"
               name="email"
@@ -68,7 +68,7 @@ const TicketForm = () => {
           </div>
         </div>
         <div className="mb-3">
-          <label htmlFor="description" className="form-label">Description</label>
+          <label htmlFor="description" className="form-label">Description:</label>
           <textarea
             name="description"
             id="description"
@@ -79,9 +79,9 @@ const TicketForm = () => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-success">Submit</button>
       </form>
-      {/* <button onClick={handleAdminLogin} className="btn btn-link mt-3">Admin Login</button> */}
+      {/* <button onClick={handleAdminLogin}>Admin Login</button> */}
     </div>
   );
 };
