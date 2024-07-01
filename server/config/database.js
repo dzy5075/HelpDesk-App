@@ -1,6 +1,5 @@
 const { Sequelize } = require('sequelize');
-import pg from "pg"
-
+const pg = require('pg');
 
 const connectionString = process.env.POSTGRES_URL;
 
@@ -18,7 +17,7 @@ const sequelize = new Sequelize(connectionString, {
     }
   },
   define: {
-    schema: 'public' // Specify the schema here
+    schema: 'public'
   }
 });
 
