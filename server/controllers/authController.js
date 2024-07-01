@@ -5,6 +5,7 @@ const User = require("../models/User");
 exports.register = async (req, res) => {
   const { username, password, role } = req.body;
 
+  // password hash
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({
@@ -19,6 +20,7 @@ exports.register = async (req, res) => {
   }
 };
 
+// Login 
 exports.login = async (req, res) => {
   const { username, password } = req.body;
 

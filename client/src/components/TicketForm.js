@@ -1,3 +1,4 @@
+// TicketForm/HomePage
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -7,11 +8,11 @@ const TicketForm = () => {
     email: "",
     description: "",
   });
-
+// handle form details
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+// Submit ticket to postgres server: helpdesk
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -31,9 +32,11 @@ const TicketForm = () => {
 
   return (
     <div className="container mt-5">
+      {/* Header */}
       <h1 className="mb-4">
         Got a problem? Submit a ticket. We will look into it.
       </h1>
+      {/* Ticket Form */}
       <form class="ticket-form"onSubmit={handleSubmit}>
         <div className="row mb-3">
           <div className="col-12 col-md-6">

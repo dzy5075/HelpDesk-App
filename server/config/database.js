@@ -1,4 +1,4 @@
-// backend/config/database.js
+// Cofigure Sequelize ORM to Postgres Database
 const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize('helpdesk', 'helpdesk_user', 'password', {

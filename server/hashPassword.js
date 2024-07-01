@@ -1,3 +1,4 @@
+// tool to hash password
 const bcrypt = require("bcryptjs");
 
 const password = "password"; // Replace with your desired password

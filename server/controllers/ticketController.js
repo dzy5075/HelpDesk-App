@@ -28,7 +28,6 @@ exports.createTicket = async (req, res) => {
     console.error("Error creating ticket:", error); // Log error details
     res.status(400).json({ error: error.message });
   }
-  ///////////////////////////////////////////////////////////////////////////
 };
 
 // Retrieves all tickets

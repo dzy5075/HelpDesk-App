@@ -1,3 +1,4 @@
+//Admin backend routes
 const express = require("express");
 const router = express.Router();
 const { authenticate, isAdmin } = require("../middleware/auth");

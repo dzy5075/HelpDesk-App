@@ -1,9 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const cors = require("cors");
+const cors = require("cors"); // to prevent CORS errors
 const ticketRoutes = require("./routes/tickets");
 const authRoutes = require("./routes/auth");
-const adminRoutes = require("./routes/admin"); // Add this line
+const adminRoutes = require("./routes/admin");
 const sequelize = require("./config/database");
 const User = require("./models/User");
 const Ticket = require("./models/Ticket");
@@ -16,13 +16,13 @@ app.use(bodyParser.json());
 
 app.use("/api/tickets", ticketRoutes);
 app.use("/api/auth", authRoutes);
-app.use("/api/admin", adminRoutes); // Add this line
+app.use("/api/admin", adminRoutes);
 
 sequelize
   .authenticate()
   .then(() => {
     console.log("Database connected...");
-    return sequelize.sync(); // This ensures tables are created
+    return sequelize.sync(); // To ensures tables are created
   })
   .then(() => {
     app.listen(PORT, () => {

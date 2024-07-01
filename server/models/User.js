@@ -1,3 +1,4 @@
+// User/Admin data table
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
