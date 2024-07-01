@@ -1,18 +1,22 @@
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
-const cors = require("cors"); // to prevent CORS errors
+const cors = require("cors");
 const sequelize = require("./config/database");
 const ticketRoutes = require("./routes/tickets");
 const authRoutes = require("./routes/auth");
 const adminRoutes = require("./routes/admin");
-// const User = require("./models/User");
-// const Ticket = require("./models/Ticket");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
+
+app.use((req, res, next) => {
+  console.log(`Incoming request: ${req.method} ${req.url}`);
+  next();
+});
 
 app.use("/api/tickets", ticketRoutes);
 app.use("/api/auth", authRoutes);
@@ -22,7 +26,7 @@ sequelize
   .authenticate()
   .then(() => {
     console.log("Database connected...");
-    return sequelize.sync(); // To ensures tables are created
+    return sequelize.sync();
   })
   .then(() => {
     app.listen(PORT, () => {
@@ -33,11 +37,15 @@ sequelize
     console.error("Unable to connect to the database:", error);
   });
 
+app.use((req, res) => {
+  res.status(404).send('404: Not Found');
+});
 
-  app.get('/debug/env', (req, res) => {
-    res.json({
-      DATABASE_URL: process.env.DATABASE_URL,
-      NODE_ENV: process.env.NODE_ENV,
-      JWT_SECRET: process.env.JWT_SECRET
-    });
+// Debug route to verify environment variables
+app.get('/debug/env', (req, res) => {
+  res.json({
+    DATABASE_URL: process.env.DATABASE_URL,
+    NODE_ENV: process.env.NODE_ENV,
+    JWT_SECRET: process.env.JWT_SECRET
   });
+});
