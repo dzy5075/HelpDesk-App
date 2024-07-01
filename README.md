@@ -72,8 +72,8 @@ Zealthy Help Desk is a simple ticketing system for managing support tickets. Use
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/yourusername/zealthy-help-desk.git
-cd zealthy-help-desk
+git clone https://github.com/dzy5075/Zealthy-HelpDesk-Exercise
+cd zealthy-helpDesk-exercise
 ```
 
 2. **Backend Setup:**
@@ -98,15 +98,6 @@ Create a `.env` file in both `client` and `server` directories with the followin
 
 ```env
 REACT_APP_API_URL=https://zealthy-help-desk-exercise-server.vercel.app
-```
-
-**Server `.env`:**
-
-```env
-POSTGRES_URL="your_postgres_connection_string"
-NODE_ENV=development
-JWT_SECRET=your_jwt_secret
-FRONTEND_URL=https://zealthy-help-desk-exercise-client.vercel.app/
 ```
 
 ### Running the Application
