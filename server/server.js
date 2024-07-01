@@ -22,6 +22,15 @@ app.use("/api/tickets", ticketRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
 
+// Debug route to verify environment variables
+app.get('/debug/env', (req, res) => {
+  res.json({
+    POSTGRES_URL: process.env.POSTGRES_URL,
+    NODE_ENV: process.env.NODE_ENV,
+    JWT_SECRET: process.env.JWT_SECRET
+  });
+});
+
 sequelize
   .authenticate()
   .then(() => {
@@ -39,13 +48,4 @@ sequelize
 
 app.use((req, res) => {
   res.status(404).send('404: Not Found');
-});
-
-// Debug route to verify environment variables
-app.get('/debug/env', (req, res) => {
-  res.json({
-    DATABASE_URL: process.env.DATABASE_URL,
-    NODE_ENV: process.env.NODE_ENV,
-    JWT_SECRET: process.env.JWT_SECRET
-  });
 });
