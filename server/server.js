@@ -53,12 +53,21 @@ app.get("/", (req, res) => {
 });
 
 // Debug route to verify environment variables
-app.get("/debug/env", (req, res) => {
-  res.json({
-    POSTGRES_URL: process.env.POSTGRES_URL,
-    NODE_ENV: process.env.NODE_ENV,
-    JWT_SECRET: process.env.JWT_SECRET,
-  });
+// app.get("/debug/env", (req, res) => {
+//   res.json({
+//     POSTGRES_URL: process.env.POSTGRES_URL,
+//     NODE_ENV: process.env.NODE_ENV,
+//     JWT_SECRET: process.env.JWT_SECRET,
+//   });
+// });
+app.get('/debug/db', async (req, res) => {
+  try {
+    await sequelize.authenticate();
+    res.status(200).send('Database connection successful!');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+    res.status(500).send('Database connection failed.');
+  }
 });
 
 // Database connection and server start
