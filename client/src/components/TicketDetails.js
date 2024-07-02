@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
+const apiUrl = process.env.REACT_APP_API_URL;
 const TicketDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const TicketDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`/api/tickets/${id}`, {
+      .get(`${apiUrl}/tickets/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -39,7 +40,7 @@ const TicketDetails = () => {
   const handleUpdate = () => {
     axios
       .put(
-        `/api/tickets/${id}`,
+        `/${apiUrl}/tickets/${id}`,
         { status, response },
         {
           headers: {
