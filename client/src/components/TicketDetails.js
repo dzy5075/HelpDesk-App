@@ -12,8 +12,9 @@ const TicketDetails = () => {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
+    const apiUrl = process.env.REACT_APP_API_URL;
     axios
-      .get(`/api/tickets/${id}`, {
+      .get(`/${apiUrl}/tickets/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
