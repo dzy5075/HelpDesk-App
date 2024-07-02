@@ -11,7 +11,7 @@ exports.createTicket = async (req, res) => {
     // Add debug log before calling logEmail
     console.log("Calling logEmail function");
 
-    // Simulate sending an email by logging the message in the backlog!
+    // Sending an email by logging the message in the backlog!
     const emailBody = `
       Hi ${ticket.name},
 

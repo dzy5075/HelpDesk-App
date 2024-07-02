@@ -28,7 +28,7 @@ const TicketDetails = () => {
         console.error("There was an error fetching the ticket details!", error);
       });
   }, [id, token]);
-// Changing Ticket Status
+  // Changing Ticket Status
   const handleStatusChange = (e) => {
     setStatus(e.target.value);
   };
@@ -36,7 +36,7 @@ const TicketDetails = () => {
   const handleResponseChange = (e) => {
     setResponse(e.target.value);
   };
-// Update Ticket Response
+  // Update Ticket Response
   const handleUpdate = () => {
     axios
       .put(
@@ -61,8 +61,15 @@ const TicketDetails = () => {
 
   return (
     <div className="container mt-5 ticket-details">
-      <button className="btn btn-secondary mb-3" onClick={() => navigate("/admin")}>Back to Tickets</button>
-      <h1><u>Ticket Details</u></h1>
+      <button
+        className="btn btn-secondary mb-3"
+        onClick={() => navigate("/admin")}
+      >
+        Back to Tickets
+      </button>
+      <h1>
+        <u>Ticket Details</u>
+      </h1>
       <p>
         <strong>Name:</strong> {ticket.name}
       </p>
@@ -79,15 +86,24 @@ const TicketDetails = () => {
         <strong>Response:</strong> {ticket.response}
       </p>
       <div className="mb-3">
-        <label htmlFor="status" className="form-label"><strong>Status:</strong></label>
-        <select id="status" value={status} onChange={handleStatusChange} className="form-select">
+        <label htmlFor="status" className="form-label">
+          <strong>Status:</strong>
+        </label>
+        <select
+          id="status"
+          value={status}
+          onChange={handleStatusChange}
+          className="form-select"
+        >
           <option value="new">New</option>
           <option value="in progress">In Progress</option>
           <option value="resolved">Resolved</option>
         </select>
       </div>
       <div className="mb-3">
-        <label htmlFor="response" className="form-label"><strong>Response:</strong></label>
+        <label htmlFor="response" className="form-label">
+          <strong>Response:</strong>
+        </label>
         <textarea
           id="response"
           className="form-control"
@@ -96,7 +112,9 @@ const TicketDetails = () => {
           onChange={handleResponseChange}
         ></textarea>
       </div>
-      <button onClick={handleUpdate} className="btn btn-success">Update Ticket</button>
+      <button onClick={handleUpdate} className="btn btn-success">
+        Update Ticket
+      </button>
     </div>
   );
 };
