@@ -95,7 +95,7 @@ const TicketDetails = () => {
           onChange={handleResponseChange}
         ></textarea>
       </div>
-      <button onClick={handleUpdate} className="btn btn-primary">Update Ticket</button>
+      <button onClick={handleUpdate} className="btn btn-success">Update Ticket</button>
     </div>
   );
 };

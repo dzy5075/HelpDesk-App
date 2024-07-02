@@ -35,16 +35,36 @@ const Admin = () => {
   }, [token, apiUrl]);
 
   return (
-    <div>
+    <div className="container mt-5">
       <h1>Admin Dashboard</h1>
-      <ul>
-        {tickets.map((ticket) => (
-          <li key={ticket.id}>
-            {ticket.name} - {ticket.description} - {ticket.status}
-            <Link to={`/admin/tickets/${ticket.id}`}>View Details</Link>
-          </li>
-        ))}
-      </ul>
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Description</th>
+            <th scope="col">Ticket Status</th>
+            <th scope="col">Response</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tickets.map((ticket) => (
+            <tr key={ticket.id}>
+              <td>{ticket.name}</td>
+              <td>{ticket.email}</td>
+              <td>{ticket.description}</td>
+              <td>{ticket.status}</td>
+              <td>{ticket.response}</td>
+              <td>
+                <Link to={`/admin/tickets/${ticket.id}`} className="btn btn-success">
+                  View Details
+                </Link>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
