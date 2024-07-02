@@ -37,9 +37,10 @@ const TicketDetails = () => {
   };
 // Update Ticket Response
   const handleUpdate = () => {
+    const apiUrl = process.env.REACT_APP_API_URL;
     axios
       .put(
-        `/api/tickets/${id}`,
+        `/${apiUrl}/tickets/${id}`,
         { status, response },
         {
           headers: {
