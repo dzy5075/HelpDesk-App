@@ -131,9 +131,9 @@ The application is deployed on Vercel. The deployment configurations are in `ver
 
 - **Admin Endpoints:**
   - `POST /api/auth/login` - Admin login
-  - `GET /api/admin/tickets` - Get all tickets (admin)
-  - `GET /api/admin/tickets/:id` - Get a ticket by ID (admin)
-  - `PUT /api/admin/tickets/:id` - Update a ticket by ID (admin)
+  - `GET /api/tickets` - Get all tickets (admin)
+  - `GET /api/tickets/:id` - Get a ticket by ID (admin)
+  - `PUT /tickets/:id` - Update a ticket by ID (admin)
 
 ### Notes
 

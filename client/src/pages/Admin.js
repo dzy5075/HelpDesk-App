@@ -17,7 +17,7 @@ const Admin = () => {
     }
 
     axios
-      .get(`${apiUrl}/api/admin/tickets`, {
+      .get(`${apiUrl}/api/tickets`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

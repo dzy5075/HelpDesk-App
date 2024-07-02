@@ -13,7 +13,7 @@ const TicketDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`/api/admin/tickets/${id}`, {
+      .get(`/api/tickets/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -39,7 +39,7 @@ const TicketDetails = () => {
   const handleUpdate = () => {
     axios
       .put(
-        `/api/admin/tickets/${id}`,
+        `/api/tickets/${id}`,
         { status, response },
         {
           headers: {
