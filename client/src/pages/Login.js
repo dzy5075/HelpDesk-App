@@ -28,7 +28,9 @@ const Login = () => {
       <h1 className="mb-4">Admin Login Page</h1>
       <form className="login-form" onSubmit={handleSubmit}>
         <div className="mb-3 row justify-content-center">
-          <label htmlFor="username" className="col-sm-2 col-form-label"><strong>Username:</strong></label>
+          <label htmlFor="username" className="col-sm-2 col-form-label">
+            <strong>Username:</strong>
+          </label>
           <div className="col-sm-6 col-md-4">
             <input
               type="text"
@@ -43,7 +45,9 @@ const Login = () => {
           </div>
         </div>
         <div className="mb-3 row justify-content-center">
-          <label htmlFor="password" className="col-sm-2 col-form-label"><strong>Password:</strong></label>
+          <label htmlFor="password" className="col-sm-2 col-form-label">
+            <strong>Password:</strong>
+          </label>
           <div className="col-sm-6 col-md-4">
             <input
               type="password"
@@ -59,7 +63,9 @@ const Login = () => {
         </div>
         <div className="row justify-content-center">
           <div className="col-sm-6 col-md-4">
-            <button type="submit" className="btn btn-success w-100">Login</button>
+            <button type="submit" className="btn btn-success w-100">
+              Login
+            </button>
           </div>
         </div>
       </form>

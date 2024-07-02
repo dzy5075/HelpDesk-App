@@ -57,7 +57,10 @@ const Admin = () => {
               <td>{ticket.status}</td>
               <td>{ticket.response}</td>
               <td>
-                <Link to={`/admin/tickets/${ticket.id}`} className="btn btn-success">
+                <Link
+                  to={`/admin/tickets/${ticket.id}`}
+                  className="btn btn-success"
+                >
                   View Details
                 </Link>
               </td>

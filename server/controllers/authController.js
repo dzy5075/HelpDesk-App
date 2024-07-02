@@ -20,7 +20,7 @@ exports.register = async (req, res) => {
   }
 };
 
-// Login 
+// Login
 exports.login = async (req, res) => {
   const { username, password } = req.body;
 

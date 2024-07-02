@@ -24,17 +24,26 @@ const TicketForm = () => {
       })
       .catch((error) => {
         alert("Error submitting ticket");
-        console.error("Error details:", error.response ? error.response.data : error.message);
+        console.error(
+          "Error details:",
+          error.response ? error.response.data : error.message
+        );
       });
   };
 
   return (
     <div className="container mt-5">
-      <h1 className="mb-4">Got a problem? Submit a ticket. We will look into it.</h1>
+      <h1 className="mb-4">
+        Got a problem? Submit a ticket. We will look into it.
+      </h1>
       <form className="ticket-form" onSubmit={handleSubmit}>
         <div className="row mb-3">
           <div className="col-12 col-md-6">
-            <label htmlFor="name" className="form-label"><strong><u>Name:</u></strong></label>
+            <label htmlFor="name" className="form-label">
+              <strong>
+                <u>Name:</u>
+              </strong>
+            </label>
             <input
               type="text"
               name="name"
@@ -47,7 +56,11 @@ const TicketForm = () => {
             />
           </div>
           <div className="col-12 col-md-6">
-            <label htmlFor="email" className="form-label"><strong><u>Email:</u></strong></label>
+            <label htmlFor="email" className="form-label">
+              <strong>
+                <u>Email:</u>
+              </strong>
+            </label>
             <input
               type="email"
               name="email"
@@ -61,7 +74,11 @@ const TicketForm = () => {
           </div>
         </div>
         <div className="mb-3">
-          <label htmlFor="description" className="form-label"><strong><u>Description:</u></strong></label>
+          <label htmlFor="description" className="form-label">
+            <strong>
+              <u>Description:</u>
+            </strong>
+          </label>
           <textarea
             name="description"
             id="description"
@@ -72,7 +89,9 @@ const TicketForm = () => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-success">Submit</button>
+        <button type="submit" className="btn btn-success">
+          Submit
+        </button>
       </form>
     </div>
   );
