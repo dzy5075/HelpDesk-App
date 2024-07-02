@@ -13,7 +13,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           <img
@@ -24,7 +24,7 @@ const Navbar = () => {
             className="d-inline-block align-top"
           />
         </Link>
-        {/* For buttons to collapse when screen gets smaller from bootstrap */}
+        {/* Navbar toggle button for smaller screens */}
         <button
           className="navbar-toggler"
           type="button"
@@ -38,7 +38,7 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            {/* Will not show Home/Form button if logged In */}
+            {/* Show Home/Form button if not logged in */}
             {!token && (
               <li className="nav-item">
                 <Link className="nav-link" to="/">
@@ -46,7 +46,7 @@ const Navbar = () => {
                 </Link>
               </li>
             )}
-            {/* Will only show login button if not logged in */}
+            {/* Show Login button if not logged in */}
             {!token && (
               <li className="nav-item">
                 <Link className="nav-link" to="/login">
@@ -54,7 +54,7 @@ const Navbar = () => {
                 </Link>
               </li>
             )}
-            {/* Will show Tickets button only if logged in */}
+            {/* Show Tickets button and Logout button if logged in */}
             {token && (
               <>
                 <li className="nav-item">

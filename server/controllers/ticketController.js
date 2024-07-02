@@ -1,29 +1,35 @@
 const Ticket = require("../models/Ticket");
 const logEmail = require("../utils/emailLogger");
 
-// Response to successful ticket creation
 exports.createTicket = async (req, res) => {
+  console.log("Entered createTicket function"); // Initial log
   try {
     console.log("Received data:", req.body); // Log received data
     const ticket = await Ticket.create(req.body);
     console.log("Created ticket:", ticket); // Log created ticket
 
+    // Add debug log before calling logEmail
+    console.log("Calling logEmail function");
+
     // Simulate sending an email by logging the message in the backlog!
     const emailBody = `
-        Hi ${ticket.name},
-  
-        Your ticket has been successfully created with the following details:
-        Description: ${ticket.description}
-        Status: ${ticket.status}
-  
-        We will get back to you shortly.
-  
-        Best Regards,
-        Support Team
-      `;
+      Hi ${ticket.name},
+
+      Your ticket has been successfully created with the following details:
+      Description: ${ticket.description}
+      Status: ${ticket.status}
+
+      We will get back to you shortly.
+
+      Best Regards,
+      Support Team
+    `;
     logEmail(ticket.email, "Ticket Created Successfully", emailBody);
 
+    console.log("After calling logEmail function");
+
     res.status(201).json(ticket);
+    console.log("Ticket creation response sent");
   } catch (error) {
     console.error("Error creating ticket:", error); // Log error details
     res.status(400).json({ error: error.message });

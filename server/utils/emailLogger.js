@@ -1,8 +1,8 @@
-const logEmail = (to, subject, body) => {
-  console.log(`Would normally send email here with body: 
-    To: ${to}
-    Subject: ${subject}
-    Body: ${body}`);
+const logEmail = (email, subject, body) => {
+  console.log("Inside logEmail function");
+  console.log(`Email sent to: ${email}`);
+  console.log(`Subject: ${subject}`);
+  console.log(`Body: ${body}`);
 };
 
 module.exports = logEmail;
