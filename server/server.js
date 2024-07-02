@@ -15,14 +15,17 @@ const PORT = process.env.PORT || 5000;
 
 // favicon
 app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
+
 app.use(
   cors({
     origin: [process.env.FRONTEND_URL, "http://localhost:3000"],
-    optionsSuccessStatus: 200,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true
+    credentials: true,
+    optionsSuccessStatus: 200,
   })
 );
+
+// Enable pre-flight requests for all routes
 app.options('*', cors());
 
 app.use(bodyParser.json());
@@ -46,7 +49,7 @@ app.get("/debug/env", (req, res) => {
     POSTGRES_URL: process.env.POSTGRES_URL,
     NODE_ENV: process.env.NODE_ENV,
     JWT_SECRET: process.env.JWT_SECRET,
-    FRONTEND_URL: process.env.FRONTEND_URL
+    FRONTEND_URL: process.env.FRONTEND_URL,
   });
 });
 
