@@ -14,7 +14,7 @@ const TicketDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`${apiUrl}/tickets/${id}`, {
+      .get(`${apiUrl}/api/tickets/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -40,7 +40,7 @@ const TicketDetails = () => {
   const handleUpdate = () => {
     axios
       .put(
-        `/${apiUrl}/tickets/${id}`,
+        `${apiUrl}/api/tickets/${id}`,
         { status, response },
         {
           headers: {
