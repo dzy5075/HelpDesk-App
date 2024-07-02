@@ -1,5 +1,8 @@
-const Ticket = require("../models/Ticket");
 const logEmail = require("../utils/emailLogger");
+const Ticket = require("../models/Ticket"); // Ensure Ticket model is imported
+
+// Verify import
+console.log("logEmail function:", logEmail);
 
 exports.createTicket = async (req, res) => {
   console.log("Entered createTicket function"); // Initial log
