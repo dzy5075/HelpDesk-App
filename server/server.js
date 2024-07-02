@@ -47,6 +47,7 @@ app.get("/debug/env", (req, res) => {
     POSTGRES_URL: process.env.POSTGRES_URL,
     NODE_ENV: process.env.NODE_ENV,
     JWT_SECRET: process.env.JWT_SECRET,
+    FRONTEND_URL: process.env.FRONTEND_URL
   });
 });
 
