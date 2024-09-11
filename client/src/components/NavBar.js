@@ -17,8 +17,8 @@ const Navbar = () => {
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           <img
-            src={`${process.env.PUBLIC_URL}/helpdeskLogo.jpg`}
-            alt="Zealthy Logo"
+            src={`${process.env.PUBLIC_URL}/helpdeskLogo.svg`}
+            alt="HelpDesk Logo"
             width="300"
             height="80"
             className="d-inline-block align-top"
