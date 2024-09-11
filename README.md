@@ -94,16 +94,6 @@ cd client
 npm install
 ```
 
-4. **Environment Variables:**
-
-Create a `.env` file in both `client` and `server` directories with the following contents:
-
-**Client `.env`:**
-
-```env
-REACT_APP_API_URL=https://help-desk-exercise-server.vercel.app
-```
-
 ### Running the Application
 
 1. **Start the Backend:**
