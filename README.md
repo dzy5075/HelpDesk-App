@@ -76,7 +76,7 @@ The application is deployed on Vercel and can be accessed at https://zealthy-hel
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/dzy5075/Zealthy-HelpDesk-Exercise
+git clone https://github.com/dzy5075/HelpDesk-App
 cd zealthy-helpDesk-exercise
 ```
 
@@ -101,7 +101,7 @@ Create a `.env` file in both `client` and `server` directories with the followin
 **Client `.env`:**
 
 ```env
-REACT_APP_API_URL=https://zealthy-help-desk-exercise-server.vercel.app
+REACT_APP_API_URL=https://help-desk-exercise-server.vercel.app
 ```
 
 ### Running the Application
