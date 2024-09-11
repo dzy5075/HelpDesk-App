@@ -8,7 +8,7 @@ HelpDesk is a simple ticketing system for managing support tickets. Users can su
 
 ## Demo
 
-The application is deployed on Vercel and can be accessed at https://zealthy-help-desk-exercise-client.vercel.app/
+The application is deployed on Vercel and can be accessed at https://helpdesk-exercise-client.vercel.app/
 
 ## Features
 
