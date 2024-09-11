@@ -77,7 +77,7 @@ The application is deployed on Vercel and can be accessed at https://helpdesk-ex
 
 ```bash
 git clone https://github.com/dzy5075/HelpDesk-App
-cd zealthy-helpDesk-exercise
+cd HelpDesk-exercise
 ```
 
 2. **Backend Setup:**
