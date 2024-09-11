@@ -2,9 +2,9 @@ Certainly! Here's a comprehensive README for your project:
 
 ---
 
-# Zealthy Help Desk
+# HelpDesk App
 
-Zealthy Help Desk is a simple ticketing system for managing support tickets. Users can submit tickets, and admins can view, update, and manage these tickets. This project uses React for the frontend, Node.js/Express.js for the backend, and PostgreSQL as the database, deployed using Vercel.
+HelpDesk is a simple ticketing system for managing support tickets. Users can submit tickets, and admins can view, update, and manage these tickets. This project uses React for the frontend, Node.js/Express.js for the backend, and PostgreSQL as the database, deployed using Vercel.
 
 ## Demo
 
